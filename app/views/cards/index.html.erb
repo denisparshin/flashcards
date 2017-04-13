@@ -3,19 +3,24 @@
 
 <table class="table">
   <tr>
-    <th>Номер</th>
     <th>Оригинал</th>
     <th>Перевод</th>
-    <th>Дата просмотра</th>
+    <th>Дата пересмотра</th>
+    <th></th>
   </tr>
   <% @cards.each do |card| %> 
   <tr>
-    <td><%= card.id %></td>
     <td><%= card.original_text %></td>
     <td><%= card.translated_text %></td>
     <td><%= card.review_date.strftime("%m/%d/%Y")%></td>
+    <td><%= link_to 'Редактировать', edit_card_path(card) %>
+    <%= link_to 'Удалить', card_path(card), method: :delete, data: { confirm: 'Точно хотите удалить?' } %>
+    </div>
+
+  <% end %></td>
+
   </tr>
-  <%end%>
+ 
 </table>
 <p>Всего карточек: <%= Card.all.count %></p>
 
