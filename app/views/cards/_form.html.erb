@@ -1,4 +1,6 @@
 <%= error_messages_for(@card) %>
+
 <%= f.text_field(:original_text, :type => "text", :placeholder => "Оригинал..") %> <br />
 <%= f.text_field(:translated_text, :type => "text", :placeholder => "Перевод..") %> <br />
-<%= f.text_field(:review_date, :type => "text", :placeholder => "Время пересмотра..") %>
+<%= f.text_field(:review_date, :type => "text", :placeholder => "Время пересмотра..") %> <br />
+<%= submit_tag("Сохранить", :class => "btn btn-success")%>

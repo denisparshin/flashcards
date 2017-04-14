@@ -1,8 +1,8 @@
 <h2>Редактировать карточку</h2>
 
-<%= form_for(:card, :url => card_path(@card), method: :patch) do |f| %>
+<%= form_for @card do |f| %>
  <%= render(:partial => "form", :locals => {:f => f}) %>
+ <% end %>
 
 
-<%= submit_tag("Добавить", :class => "btn btn-success")%><br />
-<% end %>
+

@@ -1,8 +1,5 @@
 <h2>Добавить карточку</h2>
 
-<%= form_for(:card, :url => {:action => 'create'}) do |f| %>
-<%= f.text_field(:original_text, :type => "text", :placeholder => "Оригинал..") %> <br />
-<%= f.text_field(:translated_text, :type => "text", :placeholder => "Перевод..") %> <br />
-<% @card.review_date = Time.now %> 
-<%= submit_tag("Добавить", :class => "btn btn-success")%><br />
+<%= simple_form_for @card do |f| %>
+<%= render(:partial => "form", :locals => {:f => f}) %>
 <% end %>
