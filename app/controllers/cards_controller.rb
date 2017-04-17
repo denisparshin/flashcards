@@ -18,7 +18,7 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to(:index)
+      redirect_to cards_path
     else
       render 'edit'
     end
@@ -27,15 +27,15 @@ class CardsController < ApplicationController
   def create
     @card = Card.new(card_params)
     if @card.save  
-      redirect_to(:index)
+      redirect_to cards_path
     else
       render :new
     end
   end
 
   def destroy
-    @card = Card.destroy()
-    redirect_to(:index)
+    @card.destroy
+      redirect_to cards_path
   end
 
   def set_card
