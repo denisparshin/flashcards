@@ -1,0 +1,9 @@
+<% if @card %>
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-info" %>
+<% end %>
+
+
+<%= render 'form',  card: @card %>
+
+<% end %>

@@ -1,5 +1,8 @@
-
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-success" %>
+    <% end -%>
 <h3>Все карточки</h3>
+
 
 <table class="table">
   <tr>
