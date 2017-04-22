@@ -5,26 +5,17 @@ class TrainerController < ApplicationController
     @card = @cards.pending.first
   end
  
-  def check_word
-    @card = Card.find(params[:card_id])
-    
+ def check_word
 
-    check_result = @card.check_translation(trainer_params[:translation])
-      
-    if check_result == @card.translated_text.downcase
-      @card.update(review_date: 3.days.since)
-      flash[:notice]  = "Правильно! :)"
-    else
-      flash.now[:error] = " Не верно! :("
+    result = CheckCard.call(
+    card_id: params[:card_id],
+    translation: params[:translation]
+    )
+
+    if result.success?
+      redirect_to trainer_path, notice: result.notice
     end
-      redirect_to trainer_path
-     
-  end
   
-  private
-
-  def trainer_params
-    params.permit(:translation)
-  end
-
+end
+  
 end

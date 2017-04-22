@@ -15,8 +15,6 @@ class Card < ApplicationRecord
     self.review_date = 3.days.from_now
   end 
 
-  def check_translation(translation)
-    distance = translation.downcase
-    
-  end
+  
+  
 end

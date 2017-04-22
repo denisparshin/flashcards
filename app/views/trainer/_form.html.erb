@@ -1,7 +1,4 @@
-<% if card %>
-<% flash.each do |name, msg| -%>
-      <%= content_tag :div, msg, class: "alert alert-info" %>
-<% end %><% end %>
+
 <h2>Введите перевод карточки: </h2>
 <p><%= @card.original_text %></p>
 <%= hidden_field_tag "card_id", @card.id %>
