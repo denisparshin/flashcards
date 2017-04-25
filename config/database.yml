@@ -41,7 +41,8 @@ test:
   database: flashcards_db
   pool: 5
   username: denis
-  password: '123'
+  password: 123
+  host: localhost
 
 production:
   adapter: postgresql
