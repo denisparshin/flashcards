@@ -3,7 +3,7 @@ require 'rails_helper'
 describe CheckCard do
   
   it "check card translate true" do
-     card = Card.create(id:"1", original_text: "word", translated_text: "house")
+    card = Card.create(id:"1", original_text: "word", translated_text: "house")
     result = CheckCard.call(
     card_id: "1",
     translation: "house",
@@ -14,7 +14,7 @@ describe CheckCard do
   end
 
   it "check card translate true" do
-     card = Card.create(id:"1", original_text: "word", translated_text: "house")
+    сard = Card.create(id:"1", original_text: "word", translated_text: "house")
     result = CheckCard.call(
     card_id: "1",
     translation: "word",
