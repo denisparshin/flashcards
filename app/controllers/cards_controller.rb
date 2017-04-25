@@ -3,7 +3,7 @@ class CardsController < ApplicationController
   before_action :set_card, only: [:show, :edit, :update, :destroy]
 
   def index
-    @cards = Card.all
+    @cards = Card.all    
   end
 
   def new
@@ -18,8 +18,10 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      redirect_to cards_path
+      flash[:notice] = "Успешно обновили карточку"
+       redirect_to cards_path
     else
+      flash.now[:error] = "Ошибка. Проверьте поля"
       render 'edit'
     end
   end

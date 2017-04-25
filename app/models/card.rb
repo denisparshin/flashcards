@@ -3,6 +3,7 @@ class Card < ApplicationRecord
   validate :not_equal
 
   before_validation :set_review_date_as_now, on: :create
+  scope :pending, -> { where('review_date <= ?', Time.now).order('RANDOM()') }
 
   def not_equal
     if original_text.downcase == translated_text.downcase
@@ -12,6 +13,8 @@ class Card < ApplicationRecord
 
   def set_review_date_as_now
     self.review_date = 3.days.from_now
-  end
+  end 
+
+  
   
 end
