@@ -15,6 +15,4 @@ class Card < ApplicationRecord
     self.review_date = 3.days.from_now
   end 
 
-  
-  
 end

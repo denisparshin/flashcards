@@ -11,7 +11,7 @@ class CheckCard
     else
       context.notice = "Не верно! :)"
     end
+
   end
- 
- 
+
 end
