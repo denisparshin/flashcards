@@ -18,11 +18,10 @@ class CardsController < ApplicationController
 
   def update
     if @card.update(card_params)
-      flash[:notice] = "Успешно обновили карточку"
-       redirect_to cards_path
+      redirect_to :back, notice: "Успешно обновили карточку"
     else
       flash.now[:error] = "Ошибка. Проверьте поля"
-      render 'edit'
+      render :edit
     end
   end
 
