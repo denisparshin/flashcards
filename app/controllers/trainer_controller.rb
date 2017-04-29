@@ -1,13 +1,12 @@
 class TrainerController < ApplicationController
   
   def index
-     @card = Card.pending.first
+    @card = Card.pending.first
       if @card 
-       @card
+        @card
       else
         redirect_to :back, notice: "Нет карточек для пересмотра"
-      
-    end
+      end
   end
  
  def check_word
