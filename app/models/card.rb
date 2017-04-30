@@ -1,7 +1,5 @@
 class Card < ApplicationRecord
 
-  has_and_belongs_to_many :users
-
   validates :original_text, :translated_text, presence: true
   validate :not_equal
 

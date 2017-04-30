@@ -1,10 +1,10 @@
 class TrainerController < ApplicationController
   
   def index
-     @card = Card.pending.first
+    @card = Card.pending.first
   end
  
- def check_word
+  def check_word
 
     result = CheckCard.call(
     card_id: params[:card_id],
@@ -15,6 +15,6 @@ class TrainerController < ApplicationController
       redirect_to trainer_path, notice: result.notice
     end
   
-end
+  end
   
 end
