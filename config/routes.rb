@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+ 
+  resources :sessions
+  resources :users
+
+  get 'login' => 'sessions#new', :as => :login
+  post 'logout' => 'sessions#destroy', :as => :logout
+
+  resources :users
   get 'trainer/index'
 
   root 'home#index'

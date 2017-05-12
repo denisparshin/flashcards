@@ -66,3 +66,5 @@ gem 'nokogiri'
 
 gem 'railties'
 
+gem 'sorcery'
+
