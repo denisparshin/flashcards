@@ -1,0 +1,12 @@
+<h2>Изменить профиль</h2>
+
+<%= simple_form_for current_user, url: user_path(current_user), method: :put do |f| %>
+<div>
+  <%= f.input :email, as: :email, label: 'E-mail'%>
+  <%= f.input :password, as: :password, label: 'Пароль' %>
+  <%= f.button :submit, 'Сохранить', class: 'btn btn-default' %>
+</div>
+<% end %>
+
+
+

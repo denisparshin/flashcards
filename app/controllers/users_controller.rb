@@ -7,9 +7,18 @@ class UsersController < ApplicationController
   end
 
   def edit
-    @user = User.new
   end
+  
+  def update
+    if current_user.update(user_params)
+      redirect_to edit_user_path,
+      notice: 'Successfully updated'
+    else
+      redirect_to edit_user_path,
+      notice: 'Failed. Try another email/password'
+    end
 
+  end
 
   def create
     @user = User.new(user_params)
