@@ -13,9 +13,9 @@ describe CheckCard do
   end
 
   it "check card translate false" do
-     card = Card.create(id:"1", original_text: "word", translated_text: "house")
+    card = Card.create(id:"15", original_text: "word", translated_text: "house")
     result = CheckCard.call(
-    card_id: "1",
+    card_id: "15",
     translation: "word",
     translated_text: "house"
     )
