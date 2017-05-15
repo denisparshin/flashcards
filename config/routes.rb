@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
  
-  resources :sessions
-  resources :users
+  post 'sessions' => 'sessions#create'
 
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
