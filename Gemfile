@@ -46,6 +46,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'rails-controller-testing'
 end
 
 group :develo1pment do
@@ -65,4 +66,6 @@ gem 'simple_form'
 gem 'nokogiri'
 
 gem 'railties'
+
+gem 'sorcery'
 

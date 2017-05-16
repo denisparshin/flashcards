@@ -1,7 +1,7 @@
 class TrainerController < ApplicationController
   
   def index
-    @card = Card.pending.first
+    @card = current_user.cards.pending.first
   end
  
   def check_word
