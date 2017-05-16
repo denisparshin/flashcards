@@ -16,6 +16,8 @@
         <%= link_to "Edit Profile", edit_user_path(current_user.id) %>
         <%= link_to "Logout", :logout, method: :post %>
       <% else %>
+        <%= link_to 'Login with Twitter', auth_at_provider_path(:provider => :twitter) %> | 
+        <%= link_to 'Login with Facebook', auth_at_provider_path(:provider => :facebook) %>
         <%= link_to "Register", 'users/new' %> |
         <%= link_to "Login", :login %>
       <% end %>
