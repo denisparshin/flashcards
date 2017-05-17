@@ -68,5 +68,6 @@ gem 'nokogiri'
 gem 'railties'
 
 gem 'devise'
+gem 'omniauth'
 gem 'omniauth-twitter'
 
