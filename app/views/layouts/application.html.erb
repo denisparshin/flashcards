@@ -10,6 +10,21 @@
   </head>
 
   <body>
+
+    <div id="nav">
+      <% if user_signed_in? %>
+        <span>Здравствуйте, <%= current_user.email %></span>
+        <%= link_to 'Выйти', destroy_user_session_path, :method => :delete %>
+      <% else %>
+        <%= link_to 'Войти', new_user_session_path %> или <%= link_to 'Зарегистрироваться', new_user_registration_path %>
+      
+      <% end %>
+    </div>
+    <div>
+      <p id="notice"><%= flash[:notice] %></p>
+      <p id="alert"><%= flash[:alert] %></p>
+    </div>
+    
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,11 +41,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Все карточки', '/cards' %></li>
-            <li><a href="#">Добавить карточку</a></li>
+            <li><%= link_to 'Добавить карточку', new_card_path %></li>
+            <li><%= link_to 'Тренировать', '/trainer' %></li>
       	  </ul>
         </div>
       </div>
   </nav>
+   
     <%= yield %>
       
       

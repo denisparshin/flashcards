@@ -1,21 +1,29 @@
-
+<% flash.each do |name, msg| -%>
+      <%= content_tag :div, msg, class: "alert alert-success" %>
+    <% end -%>
 <h3>Все карточки</h3>
 
+
 <table class="table">
-    <tr>
-    	<th>Номер</th>
-        <th>Оригинал</th>
-        <th>Перевод</th>
-        <th>Дата просмотра</th>
-    </tr>
-    <% @cards.each do |card| %> 
-    <tr>
-        <td><%= card.id %></td>
-        <td><%= card.original_text %></td>
-        <td><%= card.translated_text %></td>
-        <td><%= card.review_date%></td>
-    </tr>
-    <%end%>
+  <tr>
+    <th>Оригинал</th>
+    <th>Перевод</th>
+    <th>Дата пересмотра</th>
+    <th></th>
+  </tr>
+  <% @cards.each do |card| %> 
+  <tr>
+    <td><%= card.original_text %></td>
+    <td><%= card.translated_text %></td>
+    <td><%= card.review_date%></td>
+    <td><%= link_to 'Редактировать', edit_card_path(card) %>
+    <%= link_to 'Удалить', card_path(card), method: :delete, data: { confirm: 'Точно хотите удалить?' } %>
+    </div>
+
+  <% end %></td>
+
+  </tr>
+ 
 </table>
-     <p>Всего карточек: <%= Card.all.count %></p>
+<p>Всего карточек: <%= current_user.cards.all.count %></p>
 
