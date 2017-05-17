@@ -1,23 +1,15 @@
 class SessionsController < ApplicationController
 
-  skip_before_action :require_login, except: [:destroy]
-
-  def new
-    @user = User.new
-  end
-
   def create
-    if @user = login(params[:email], params[:password])
-      redirect_back_or_to(root_path, notice: 'Login successful')
-    else
-      flash.now[:alert] = 'Login failed'
-      render action: 'new'
-    end
+    @user = User.find_or_create_from_auth_hash(auth_hash)
+    self.current_user = @user
+    redirect_to '/'
   end
 
-  def destroy
-    logout
-    redirect_back_or_to(root_path, notice: 'Logged out!')
+  protected
+
+  def auth_hash
+    request.env['omniauth.auth']
   end
 
 end
