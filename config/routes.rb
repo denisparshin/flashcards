@@ -1,11 +1,7 @@
 Rails.application.routes.draw do
  
-  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
-  resources :users
-
   
-  get '/auth/:provider/callback', to: 'sessions#create'
-
+  devise_for :users
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
 
@@ -13,7 +9,7 @@ Rails.application.routes.draw do
   get 'trainer/index'
 
   root 'home#index'
-  get 'persons/profile', as: 'user_root'
+  
   resources :cards
   get 'trainer' => 'trainer#index'
   put 'check_word' => 'trainer#check_word'

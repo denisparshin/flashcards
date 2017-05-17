@@ -66,7 +66,7 @@ gem 'simple_form'
 gem 'nokogiri'
 
 gem 'railties'
-
+gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
