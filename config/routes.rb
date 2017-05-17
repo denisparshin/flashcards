@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  
-  post "oauth/callback" => "oauths#callback"
-  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
-  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
  
-  post 'sessions' => 'sessions#create'
+  devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
+  resources :users
+
+  
+  get '/auth/:provider/callback', to: 'sessions#create'
 
   get 'login' => 'sessions#new', :as => :login
   post 'logout' => 'sessions#destroy', :as => :logout
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'trainer/index'
 
   root 'home#index'
+  get 'persons/profile', as: 'user_root'
   resources :cards
   get 'trainer' => 'trainer#index'
   put 'check_word' => 'trainer#check_word'
