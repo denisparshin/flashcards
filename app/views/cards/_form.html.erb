@@ -3,4 +3,10 @@
 <%= f.text_field(:original_text, :type => "text", :placeholder => "Оригинал..") %> <br />
 <%= f.text_field(:translated_text, :type => "text", :placeholder => "Перевод..") %> <br />
 <%= f.text_field(:review_date, :type => "text", :placeholder => "Время пересмотра..") %> <br />
+<%= image_tag @card.avatar.thumb.url if @card.avatar? %>
+<br />
+<%= f.file_field :avatar %>
+
+
+
 <%= submit_tag("Сохранить", :class => "btn btn-success")%>

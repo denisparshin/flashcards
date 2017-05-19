@@ -70,4 +70,5 @@ gem 'therubyracer'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-twitter'
-
+gem "carrierwave"
+gem 'mini_magick'

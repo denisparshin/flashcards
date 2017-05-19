@@ -1,7 +1,10 @@
 
 <h2>Введите перевод карточки: </h2>
+<%= image_tag @card.avatar.thumb.url if @card.avatar? %>
+<br />
 <p><%= @card.original_text %></p>
 <%= hidden_field_tag "card_id", @card.id %>
+
 <hr>
 <%= form_tag check_word_path(card_id: @card.id), method: :put do %>
 <%= text_area_tag :translation  %>

@@ -1,11 +1,13 @@
 class Card < ApplicationRecord
   
   belongs_to :user
-
+  
   validates :original_text, :translated_text, presence: true
   validate :not_equal
-
+  mount_uploader :avatar, AvatarUploader
+  serialize :avatars
   before_validation :set_review_date_as_now, on: :create
+
   scope :pending, -> { where('review_date <= ?', Time.now).order('RANDOM()') }
 
   def not_equal
